@@ -1,0 +1,20 @@
+1.
+SELECT ra, dec FROM gaiadr2.gaia_source WHERE 1=CONTAINS(POINT('ICRS',ra,dec),CIRCLE('ICRS',10.684708,41.268750,3.2))
+2.
+SELECT TOP 1000000 ra, dec, phot_g_mean_mag
+FROM gaiadr2.gaia_source
+ORDER BY phot_g_mean_mag ASC
+3.
+SELECT TOP 1000000 ra, dec
+FROM gaiadr2.gaia_source
+ORDER BY random_index
+4.
+SELECT s.ra, s.dec, c.pf
+FROM gaiadr2.gaia_source AS s
+JOIN gaiadr2.vari_cepheid AS c
+USING (source_id)
+5.
+SELECT ra,dec,pmra,pmdec,bp_g,phot_g_mean_mag
+FROM gaiadr2.gaia_source
+WHERE 1=CONTAINS(POINT('ICRS',ra,dec),
+CIRCLE('ICRS',12.1083,85.2550,0.4))
