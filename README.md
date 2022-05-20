@@ -1,4 +1,4 @@
-# samplePy
+# digital_data_analysis_py_samples
 Python samples for data analysis in Astronomy
 
 This set of files contains examples of various packages usage designed for Astronomy in general like Astropy, Numpy, Matplotlib, etc.
