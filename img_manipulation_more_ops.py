@@ -29,4 +29,32 @@ thisCircle=plt.Circle((centerX,centerY),10,color='r',fill=False,lw=2)
 plt.gca().add_artist(thisCircle)
 thisCircle=plt.Circle((centerX,centerY),20,color='r',fill=False,lw=2)
 plt.gca().add_artist(thisCircle)
+#%%
+#defining the sum of pixel brightness in the outer circle
+radiusOut=20
+photCollector=numpy.array([])
+for ii in range(centerX-radiusOut,centerX+radiusOut):
+    for jj in range(centerY-radiusOut,centerY+radiusOut):
+        distance=numpy.sqrt((ii-centerX)**2+(jj-centerY)**2)
+        if distance < radiusOut:
+            photCollector=numpy.append(photCollector,imdataS[jj][ii])
+C1=numpy.sum(photCollector)
+A1=len(photCollector)
+
+#and now the inner circle
+radiusIn=10
+photCollector=numpy.array([])
+for ii in range(centerX-radiusIn,centerX+radiusIn):
+    for jj in range(centerY-radiusIn,centerY+radiusIn):
+        distance=numpy.sqrt((ii-centerX)**2+(jj-centerY)**2)
+        if distance < radiusIn:
+            photCollector=numpy.append(photCollector,imdataS[jj][ii])
+C2=numpy.sum(photCollector)
+A2=len(photCollector)
+
+print('Outer radius','brightness:',C1,'area:',A1)
+print('Inner radius','brightness:',C2,'area:',A2)
+
+l=C2-((C1-C2)/(A1-A2)*A2) #brightness formula
+print('{:.2f}'.format(l))
 
