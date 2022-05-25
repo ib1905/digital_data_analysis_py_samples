@@ -5,5 +5,3 @@ This set of files contains examples of various packages usage designed for Astro
 The use cases are provided by Markus Pössel in his article (the part devoted to Python) on https://arxiv.org/abs/1905.13189
 All the operations in the files have been tested on real data (not included here due to the volume issues)
 In most cases, Spyder IDE was used along with native Python IDLE and CLI.
-
-The set is to be supplemented further.
